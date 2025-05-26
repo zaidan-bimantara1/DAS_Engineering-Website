@@ -1,0 +1,269 @@
+.image-con {
+  position: relative;
+}
+.rounded {
+  opacity: 1;
+  display: block;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.overlay {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.image-con:hover .rounded {
+  opacity: 0.3;
+}
+.image-con:hover .overlay {
+  opacity: 1;
+}
+.text {
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+.content-card {
+  background: linear-gradient(135deg, #282c3c 0%, #3e414b 100%);
+  border-left: 4px solid #4f46e5;
+  transition: all 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-title {
+  position: relative;
+  display: inline-block;
+}
+.service-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: #4f46e5;
+  transition: width 0.3s ease;
+}
+.service-card:hover .service-title::after {
+  width: 100%;
+}
+.text-content {
+  text-align: justify;
+  hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.textku {
+  color: rgb(0, 0, 0);
+  text-indent: 25px;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  text-align: justify;
+  word-wrap: break-word;
+  display: block;
+  white-space: normal;
+}
+.tight-wrap {
+  text-align: justify;
+  hyphens: auto;
+  word-spacing: -0.1em; /* Optional: untuk lebih rapat */
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90%;
+  overflow-y: auto;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  opacity: 0;
+  transition: none; /* Nonaktifkan CSS transition */
+}
+
+.modal-content {
+  opacity: 0; /* Awalnya tersembunyi untuk GSAP */
+}
+
+/* Opsional: Efek overlay */
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+/* Memastikan teks tetap visible setelah animasi */
+.modal.show h2,
+.modal.show p {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Efek cursor untuk typing
+.typing-in-progress {
+  border-right: 2px solid;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #000; }
+} */
+
+.flex-row-reverse .text-content {
+  padding-right: 1.5rem;
+}
+
+.text-wrapper {
+  position: relative;
+  overflow: hidden; /* Penting untuk contain float */
+}
+
+.image-float-right {
+  float: right;
+  width: 35%; /* Sesuaikan sesuai kebutuhan */
+  max-width: 300px;
+  height: auto;
+  margin: 0 0 15px 20px;
+  shape-outside: margin-box;
+  shape-margin: 1rem;
+  border-radius: 8px;
+}
+
+.image-float-left {
+  float: left;
+  width: 35%;
+  max-width: 300px;
+  height: auto;
+  margin: 0 20px 15px 0;
+  shape-outside: margin-box;
+  shape-margin: 1rem;
+}
+
+.image-wrap-tight {
+  float: right; /* Ubah dari 'auto' ke 'right' */
+  width: 400px;
+  height: auto;
+  shape-outside: margin-box;
+  shape-margin: 12px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  margin-right: 0; /* Pastikan tidak ada margin kanan */
+} 
+
+.text-content {
+  text-align: justify;
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+.float-left {
+  float: left;
+  margin-right: 20px;
+  margin-left: 0;
+}
+/* Untuk gambar dengan transparansi (PNG) */
+/* .image-transparent {
+  shape-outside: url('gambar.png');
+  shape-image-threshold: 0.5;
+} */
+
+@media (max-width: 768px) {
+  .image-float-right,
+  .image-float-left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 20px 0;
+    shape-outside: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-wrap-tight, .float-left {
+    float: none;
+    width: 100%;
+    margin: 0 0 20px 0;
+  }
+}
+
+/* Fallback untuk browser lama untuk wrap*/
+@supports not (shape-outside: margin-box) {
+  .image-wrap-tight {
+    margin: 0 15px 10px 0;
+  }
+}
+
+/* Untuk browser yang tidak support hyphens */
+@supports not (hyphens: auto) {
+  .tight-wrap {
+    word-break: break-all;
+  }
+}
+
+/* Untuk tampilan mobile */
+@media (max-width: 768px) {
+  .flex-row-reverse {
+      flex-direction: column;
+  }
+  .flex-row-reverse img {
+      margin-left: 0;
+      margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .flex-row-reverse {
+      flex-direction: column-reverse;
+  }
+  .md\:w-1\/3, .md\:w-2\/3 {
+      width: 100%;
+  }
+  .md\:ml-8 {
+      margin-left: 0;
+  }
+}

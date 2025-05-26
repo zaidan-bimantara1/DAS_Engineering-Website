@@ -1,0 +1,58 @@
+
+      .image-con {
+        position: relative;
+        /* width: 50%; */
+       }
+      
+      .rounded {
+        opacity: 1;
+        display: block;
+        height: auto;
+        transition: .5s ease;
+        backface-visibility: hidden;
+      }
+      
+      .overlay {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        /* right: 0%; */
+        /* text-align: left; */
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%)
+      }
+
+      .image-con {
+        transition: transform 0.3s ease;
+      }
+      
+      .image-con:hover {
+        transform: scale(1.03);
+        z-index: 10;
+      }
+      
+      .image-con:hover .rounded {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+      
+      .image-con:hover .rounded {
+        opacity: 0.3;
+      }
+      
+      .image-con:hover .overlay {
+        opacity: 1;
+      }
+      
+      .text {
+        color: black;
+        font-size: 16px;
+        padding: 16px 32px;
+      }
+      
+      .textku {
+        color: rgb(255, 255, 255);
+        text-indent: 30px;
+        /* text-transform: uppercase; */
+      }
