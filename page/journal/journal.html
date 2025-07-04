@@ -110,7 +110,7 @@
                         section.innerHTML = '<div class="col-span-full text-center text-white py-10">Loading...</div>';
                     });
                     // Gunakan URL absolut ke API Anda
-                    const apiBaseUrl = 'https://dasengineering-bali.com';
+                    const apiBaseUrl = 'yourApiURL';
                     const [onproResponse, teactResponse] = await Promise.all([
                         fetch(`${apiBaseUrl}/api.php/onpro`),
                         fetch(`${apiBaseUrl}/api.php/teact`)
