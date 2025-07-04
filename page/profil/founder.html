@@ -1,157 +1,204 @@
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Company Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link rel="stylesheet" href="./style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>    
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Company Profile</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+        <link rel="icon" type="image/png" href="/content/LOGO.webp">    
+        <style>
+        .text {
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+        .textku {
+            color: rgb(255, 255, 255);
+            text-indent: 60px;
+        }
+          
+        @media screen and (min-width: 769px) {
+            .imge{
+                margin-left: 20px;
+            }
+        }
+        .img{
+            width: 400px;
+            height: auto;
+            opacity: 1;
+        }
+        </style>
+        <script>
+            fetch("/page/navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
 
-    <!-- <link href="../../src/output.css" rel="stylesheet"/> -->   
-    <style>
-      .text {
-        color: black;
-        font-size: 16px;
-        padding: 16px 32px;
-      }
-      
-      .textku {
-        color: rgb(255, 255, 255);
-        text-indent: 30px;
-        /* text-transform: uppercase; */
-      }        
-    </style>
-    <script>
-        fetch("/page/sidebar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("sidebar-container").innerHTML = data;
-            })
-            .catch(error => console.error("Error loading sidebar:", error));
-
-        fetch("/page/footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("footer-container").innerHTML = data;
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    </script>
-</head>
-<body class="body bg-white-800 text-white">
-        <!-- Sidebar -->
-        <div data-aos="fade-right" id="sidebar-container" class="sidebar-container p-5 top-0 bottom-0 flex flex-col justify-between ease-in h-full">
-        </div>
-        <!-- end sidebar -->        
+            fetch("/page/footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        </script>
+    </head>
+    <body class="body">
+        <!-- Navbar -->
+        <div id="navbar-container" class="navbar-container" data-aos="fade-down"></div>
         <!-- CONTENT START -->
-        <div id="content" class="content-container flex-1 relative overflow-auto p-8 ml-5 transition-all duration-300">
-            <div data-aos="fade-down" class="header bg-[#282c3c] p-5 rounded" id="main-header">
-                <div class="header-content">
-                    <a href="./profiles.html" class="hover:text-gray-400">
-                        <h1 class="text-6xl md:text-6xl font-bold mb-5">COMPANY PROFILE</h1>
-                    </a>
-                    <div class="header-nav">
-                        <!-- Desktop Menu -->
-                        <div class="tab-links-container">
-                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold" href="./profiles.html">PROFILE</a>
-                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold" href="./founder.html">FOUNDER</a>
-                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold" href="./team.html">TEAM</a>
-                        </div>
-                        <!-- Toggle Theme (Desktop) -->
-                        <button id="themeToggle" class="p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
-                            <i id="themeIcon" class="fas fa-moon"></i>
-                        </button>
-                        <!-- Mobile Menu -->
-                        <div class="mobile-menu-container">
-                            <!-- Toggle Theme (Mobile) -->                            
-                            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
-                                Menu <i class="fas fa-chevron-down" id="mobile-menu-arrow"></i>
-                            </button>
-                            <div class="mobile-dropdown" id="mobile-dropdown">
-                                <a href="./profiles.html" onclick="closeMobileMenu()">PROFILE</a>
-                                <a href="./founder.html" onclick="closeMobileMenu()">FOUNDER</a>
-                                <a href="./team.html" onclick="closeMobileMenu()">TEAM</a>
+        <div class="bgimg-7">
+            <section data-aos="fade-down" id="profiles" class=" bg-[#021736] content-container flex-1 relative transition-all duration-300">
+                <div class="headers" id="main-headers">
+                    <div class="header-content ml-20">
+                        <a href="./profiles.html" class="hover:text-gray-400">
+                            <p class="text-3xl text-3xl md:text-5xl font-bold mb-4 text-white">COMPANY PROFILE</p>
+                        </a>
+                        <div class="header-navs">
+                            <!-- Desktop Menu -->
+                            <div class="tab-links-container">
+                                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white" href="./profiles.html">PROFILE</a>
+                                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white opacity-75" href="./founder.html">FOUNDER</a>
+                                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white" href="./team.html">TEAM</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div><br>
+            </section>
+        </div>
             <div class="content-wrapper">
                 <!-- Konten lainnya -->
-                <div data-aos="fade-down" id="founder1" class="section p-2">
-                    <div class="bg-[#282c3c] text-white p-5 mb-5 rounded">
-                        <h1 class="text-4xl font-bold mb-5">FOUNDER</h1>
-                    </div>
-                    <div data-aos="fade-up" class="content-card bg-[#585c6c] p-5 rounded shadow mb-5">
-                        <section class="mb-10 text-white text-justify overflow-hidden mx-auto">
-                            <!-- Gambar di-float ke kiri -->
-                            <img data-aos="fade-right"  src="/content/founder.webp" 
-                                 alt="DSG Image" 
-                                 class=" image-wrap-tight float-left md:mb-0 md:mr-20 mr-6 mb-2 max-h-72 rounded shadow">
-                            <!-- Konten teks -->
-                            <h2 data-aos="fade-left" class="typing-effect text-3xl font-bold mb-4 text-left p-2">
-                                I Dewa Gede Tri Ambara
-                            </h2>
-                            <p data-aos="fade-left" class="typing-effect textku text-sm md:text-base mb-4 text-left md:mr-20">
-                                I Dewa Gede Tri Ambara adalah pendiri dan CEO PT Dewata Ayu Sri (DAS Engineering), perusahaan konsultan dan kontraktor teknik yang berdiri sejak 2016. Dengan lebih dari 10 tahun pengalaman di industri konstruksi, beliau memiliki keahlian dalam Mechanical, Electrical, and Plumbing (MEP). Dewa Gede Tri Ambara memulai bisnisnya dengan visi untuk menghadirkan solusi teknik efisien, inovatif, dan berkelanjutan di Bali, dengan fokus pada proyek perhotelan, perumahan, dan komersial. Dalam setiap proyek, beliau berkomitmen memberikan kualitas terbaik bagi klien dengan teknologi terbaru dan standar tinggi.
-                            </p>
-                            <p data-aos="fade-left" class="typing-effect textku text-sm md:text-base mb-4 text-left mb-9 md:mr-20">
-                                Sebagai pendiri dan pemimpin, Dewa Gede Tri Ambara berfokus pada kualitas, integritas, dan keberlanjutan dalam setiap pekerjaan. Kepemimpinan beliau tidak hanya berfokus pada hasil, tetapi juga pada pengembangan tim yang solid dan profesional. Dengan menciptakan budaya kerja yang mendorong inovasi dan transparansi, beliau berhasil mengarahkan DAS Engineering untuk menangani proyek besar, membuktikan keunggulan dalam MEP design, instalasi, dan manajemen proyek. Filosofi kepemimpinan beliau yang mengutamakan ketelitian dan perhatian terhadap detail menjadikan DAS Engineering salah satu perusahaan terkemuka di bidang MEP di Bali, dikenal sebagai penyedia solusi yang handal dan efektif.
-                            </p><br>
-                        </section>                    
-                    </div>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                    <div data-aos="zoom-in-right" class="content-card service-card p-6 rounded-lg bg-white shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-[#4f46e5] p-3 rounded-full mr-4 w-40 h-40">
-                                <img src="/content/LOGO.webp" 
-                                alt="Founder Image" 
-                                class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                <div id="fast" class="section">
+                    <div class="bgimg-7">
+                        <div class="flex flex-row-reverse flex-col md:flex-row">
+                            <div data-aos="fade-up" class="p-16 w-1/2"></div>
+                            <div data-aos="fade-up" class="p-16 w-1/2">
+                                <div class="rounded">
+                                    <div class="card text-white bg-[#CBDCEB] img rounded">
+                                        <img src="/content/DewaBJ (1).webp" class="img mb-4 object-cover shadow">
+                                        <div class="container ">
+                                            <p class="text-gray-800 font-bold text-center text-2xl md:text-2xl mb-2">Dewa Nyoman Tri Budiantara</p>
+                                            <p class="text-gray-700 typing-effect text-center mb-5">CEO Of DAS Engineering</p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <h3 class="service-title text-xl font-bold">Profile</h3>
                         </div>
-                        <p class="text-white-200 mb-4 typing-effect">PT Dewata Ayu Sri (DAS Engineering) adalah perusahaan konsultan dan kontraktor MEP yang berdiri sejak 2016 di Bali.
-                        </p>
-                        <a href="./profiles.html" class="inline-flex items-center group">
-                            <span class="inline-flex items-center text-[#4f46e5] hover:text-[#7c73e6] transition-colors ">
-                                VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
-                            </span>
-                        </a>
                     </div>
-                    <div data-aos="zoom-in-up" class="content-card service-card p-6 rounded-lg bg-white shadow-lg">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-[#4f46e5] p-3 rounded-full mr-4 w-40 h-40">
-                                <img src="/content/Download User Icon Vector for free.webp" 
-                                alt="Founder Image" 
-                                class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+
+                    <div class="bgimg-11">
+                        <div class="flex flex-col md:flex-row">
+                            <div data-aos="fade-right" class="bg-[#041F47] p-5 w-1/2">
+                                <section class="mb-5 text-justify overflow-hidden mx-auto p-20">
+                                    <div class="text-content">
+                                        <h2 data-aos="fade-right" class="typing-effect text-2xl md:text-3xl font-bold text-gray-100 mb-5 text-left">
+                                            Dewa Nyoman Tri Budiantara
+                                        </h2>
+                                        <p data-aos="fade-right" data-aos-delay="500" class="textku text-gray-300 text-1xl md:text-xl mb-4 text-left">
+                                            Dewa Nyoman Tri Budiantara is the founder and CEO of PT Dewata Ayu Sri (DAS Engineering), an engineering consultant and contractor company established in 2013. With more than 15 years of experience in the construction industry, he has expertise in Mechanical, Electrical, and Plumbing (MEP). Dewa Nyoman Tri Budiantara started his business with a vision to provide efficient, innovative, and sustainable engineering solutions in Bali, focusing on hospitality, residential, and commercial projects. In every project, he is committed to providing the best quality for clients with the latest technology and high standards.
+                                        </p>
+                                    </div>
+                                </section>
                             </div>
-                            <h3 class="service-title text-xl font-bold">Our Team</h3>
+                            <div data-aos="fade-up" class="p-5 w-1/2 opacity-0"></div>
                         </div>
-                        <p class="text-white-200 mb-4 typing-effect">Tim DAS Engineering terdiri dari para profesional muda yang ahli di bidangnya, berfokus pada kolaborasi dan inovasi untuk memberikan solusi MEP berkualitas tinggi.
-                        </p>
-                        <a href="./team.html" class="inline-flex items-center group">
-                            <span class="inline-flex items-center text-[#4f46e5] hover:text-[#7c73e6] transition-colors ">
-                                VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
-                            </span>
-                        </a>
                     </div>
+                    <div class="bgimg-8">
+                        <div class="flex flex-row-reverse flex-col md:flex-row">
+                            <div data-aos="fade-up" class="p-20 w-1/2"></div>
+                            <div data-aos="fade-up" class="p-20 w-1/2 opacity-0">
+                                <div class="card rounded bg-white p-10">
+                                    <section class="mb-10 text-justify overflow-hidden mx-auto">
+                                        <h2 data-aos="fade-right" class="typing-effect text-3xl font-bold text-gray-800 mb-5 text-left">
+                                            Dewa Nyoman Tri Budiantara
+                                        </h2>                                        
+                                        <p data-aos="fade-right" data-aos-delay="500" class="textku text-gray-700 text-1xl md:text-xl text-left">
+                                            As a founder and leader, Dewa Nyoman Tri Budiantara focuses on quality, integrity, and sustainability in every work. His leadership is not only focused on results, but also on developing a solid and professional team. By creating a work culture that encourages innovation and transparency, he has successfully directed DAS Engineering to handle large projects, proving excellence in MEP design, installation, and project management. His leadership philosophy that prioritizes precision and attention to detail makes DAS Engineering one of the leading companies in the MEP field in Bali, known as a reliable and effective solution provider.
+                                        </p>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section id="profiles" class="section bg-[#041F47] p-10">
+                        <div data-aos="fade-left" class="text-center mb-10 p-5">
+                            <div class="grid grid-cols-4 gap-10">
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="100">
+                                    <h3 class="text-4xl font-bold text-[#133E87] mb-2">144+</h3>
+                                    <p class="text-gray-600">Projects Completed</p>
+                                </div>
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="200">
+                                    <h3 class="text-4xl font-bold text-[#133E87] mb-2">11+</h3>
+                                    <p class="text-gray-600">Years Experience</p>
+                                </div>
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="300">
+                                    <h3 class="text-4xl font-bold text-[#133E87] mb-2">5+</h3>
+                                    <p class="text-gray-600">Expert Engineers</p>
+                                </div>
+                                <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="400">
+                                    <h3 class="text-4xl font-bold text-[#133E87] mb-2">18+</h3>
+                                    <p class="text-gray-600">Industry Partners</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                            <div data-aos="zoom-in" data-aos-delay="100" class="service-card p-6 rounded-lg bg-white shadow-lg">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-[#133E87] p-3 rounded-full mr-4 w-40 h-40">
+                                        <img src="/content/LOGO.webp" 
+                                        alt="Founder Image" 
+                                        class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                                    </div>
+                                    <h3 class="service-title text-3xl font-bold text-black">Profile</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4 typing-effect">
+                                    PT. Dewata Ayu Sri is a company specializing in the drafting, design, and consulting of Mechanical, Electrical, and Plumbing (MEP) systems.
+                                </p>
+                                <a href="./profiles.html" class="inline-flex items-center group">
+                                    <span class="inline-flex items-center text-[#133E87] hover:text-[#608BC1] transition-colors">
+                                        VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
+                                    </span>
+                                </a>
+                            </div>
+                            <div data-aos="zoom-in" data-aos-delay="400" class="service-card p-6 rounded-lg bg-white shadow-lg">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-[#133E87] p-3 rounded-full mr-4 w-40 h-40">
+                                        <img src="/content/Download User Icon Vector for free.webp" 
+                                        alt="Founder Image" 
+                                        class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                                    </div>
+                                    <h3 class="service-title text-3xl font-bold text-black">Our Team</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4 typing-effect">
+                                    The DAS Engineering team consists of young professionals who focus on collaboration and innovation.
+                                </p>
+                                <a href="./team.html" class="inline-flex items-center group">
+                                    <span class="inline-flex items-center text-[#133E87] hover:text-[#608BC1] transition-colors ">
+                                        VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </div><br>            
-            <!-- footer start -->
-            <div data-aos="fade-up" id="footer-container" class="footer-container mb-3 rounded">
-            </div>
+            <!-- footer start -->   
+            <div id="footer-container" class="footer-container"></div>
+
         </div>            
             <div id="scrollToTopBtn" class="hidden fixed bottom-8 right-12 bg-white text-black p-3 rounded-full cursor-pointer shadow-lg">
                 <i class="fas fa-arrow-up"></i>
             </div>          
-    <!-- CONTENT END -->
+        <!-- CONTENT END -->
         <script src="/js/animations.js" defer></script>
         <script src="/js/script.js"></script>
         <script>
@@ -167,5 +214,5 @@
                 }
             });
         </script>
-</body>
+    </body>
 </html>

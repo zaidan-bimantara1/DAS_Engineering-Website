@@ -15,7 +15,7 @@
     <link rel="icon" type="image/png" href="/content/LOGO.webp">
     <style>
         :root {
-            --primary: #084789;
+            --primary: #0d6efd;
             --secondary: #6c757d;
             --dark: #212529;
             --light: #f8f9fa;
@@ -44,7 +44,7 @@
             object-fit: cover;
             z-index: 1;
             will-change: transform;
-            opacity: 0.95;
+            opacity: 0.9;
         }
         .hero-overlay {
             position: absolute;
@@ -137,8 +137,8 @@
             min-height: 400px;
         }
         .client-logo {
-            filter: grayscale(90%);
-            opacity: 0.8;
+            filter: grayscale(100%);
+            opacity: 0.6;
             transition: all 0.3s ease;
         }
         
@@ -146,53 +146,65 @@
             filter: grayscale(0);
             opacity: 1;
         }
+        @media (max-width: 768px) {
+            .hero-content {
+                align-items: center;
+                text-align: center;
+            }
+            
+            .section {
+                padding: 60px 5%;
+            }
+            
+            .project-item {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body class="body bg-white-800 text-white">
     <!-- Navbar -->
-    <div id="navbar-container" class="navbar-container" data-aos="fade-down"></div>
+    <div id="navbar-container" class="navbar-container opacity-75" data-aos="fade-down"></div>
     
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container mx-auto">
-            <video id="parallaxVideo" class="hero-video" autoplay muted loop>
-                <source src="../../content/vodeo-asset-sementara-made-with-clipchamp-efckuy.hevc.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-            </video>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1 class="text-7xl md:text-7xl font-bold mb-4 ml-8 text-[#fffff]" data-aos="fade-up">DAS ENGINEERING</h1>
-                <p class="text-xl md:text-3xl mb-8 max-w-3xl text-[#CBDCEB]" data-aos="fade-up" data-aos-delay="100">Innovative Engineering Solutions for a Sustainable Future</p>
-            </div>
+        <video id="parallaxVideo" class="hero-video" autoplay muted loop>
+            <source src="../../content/vodeo-asset-sementara-made-with-clipchamp-efckuy.hevc.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 ml-5" data-aos="fade-up">DAS ENGINEERING</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl" data-aos="fade-up" data-aos-delay="100">Innovative Engineering Solutions for a Sustainable Future</p>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section bg-[#041F47]">
+    <section data-aos="fade-up" id="about" class="section bg-[#021736]">
         <div class="container mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div data-aos="fade-right">
                     <h2 class="section-title text-3xl md:text-4xl font-bold">About DAS Engineering</h2>
-                    <p class="text-lg text-gray-300 mb-6">PT. Dewata Ayu Sri is a professional MEP (Mechanical, Electrical, Plumbing) consulting and design company founded in 2013 by engineers Dewa and Indra. We combine expert engineering with advanced software like AutoCAD, Revit, and CAMEL to deliver efficient, cost-effective MEP solutions.</p>
-                    <p class="text-gray-300 mb-8">From our beginnings as a drafting service, we have grown into a full-service provider, offering MEP design, consulting, and supply tailored to client needs. Our commitment to quality and precision drives every project we handle.</p>
-                    <a href="/page/profil/profiles.html" class="bg-[#133E87] hover:bg-[#608BC1] text-white px-6 py-2 rounded-full font-medium inline-block transition duration-300">Learn More</a>
+                    <p class="text-lg text-gray-300 mb-6">PT Dewata Ayu Sri (DAS Engineering) is a leading MEP consultant and contractor established in 2016 in Bali. We provide innovative technical solutions for hospitality, residential, and industrial projects.</p>
+                    <p class="text-gray-300 mb-8">With our focus on efficiency, quality, and regulatory compliance, we've successfully delivered numerous projects across Indonesia.</p>
+                    <a href="/page/profil/profiles.html" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium inline-block transition duration-300">Learn More</a>
                 </div>
                 <div data-aos="fade-left">
                     <div class="grid grid-cols-2 gap-4">
                         <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="100">
-                            <h3 class="text-4xl font-bold text-[#133E87] mb-2">144+</h3>
+                            <h3 class="text-4xl font-bold text-blue-600 mb-2">144+</h3>
                             <p class="text-gray-600">Projects Completed</p>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="200">
-                            <h3 class="text-4xl font-bold text-[#133E87] mb-2">11+</h3>
+                            <h3 class="text-4xl font-bold text-blue-600 mb-2">11+</h3>
                             <p class="text-gray-600">Years Experience</p>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="300">
-                            <h3 class="text-4xl font-bold text-[#133E87] mb-2">5+</h3>
+                            <h3 class="text-4xl font-bold text-blue-600 mb-2">5+</h3>
                             <p class="text-gray-600">Expert Engineers</p>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center" data-aos="zoom-in" data-aos-delay="400">
-                            <h3 class="text-4xl font-bold text-[#133E87] mb-2">18+</h3>
+                            <h3 class="text-4xl font-bold text-blue-600 mb-2">18+</h3>
                             <p class="text-gray-600">Industry Partners</p>
                         </div>
                     </div>
@@ -202,7 +214,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="section bg-[#CBDCEB]">
+    <section data-aos="fade-up" id="services" class="section bg-[#d3d6e0]">
         <div class="container mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="section-title text-3xl md:text-4xl font-bold mx-auto text-black">Our Services</h2>
@@ -213,48 +225,48 @@
                 <!-- Service 1 -->
                 <div class="service-card bg-white" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-8">
-                        <div class="text-[#133E87] text-4xl mb-4">
+                        <div class="text-blue-600 text-4xl mb-4">
                             <i class="fas fa-drafting-compass"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-black">MEP DESIGN</h3>
                         <p class="text-gray-600 mb-4">PT. Dewata Ayu Sri offers comprehensive MEP Design services, covering the planning of mechanical, electrical, and plumbing systems.</p>
-                        <a href="/page/services/services.html" class="text-[#133E87] font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="/page/services/services.html" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
                 
                 <!-- Service 2 -->
                 <div class="service-card bg-white" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-8">
-                        <div class="text-[#133E87] text-4xl mb-4">
+                        <div class="text-blue-600 text-4xl mb-4">
                             <i class="fas fa-bolt"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-black">Building Approval (PBG)</h3>
                         <p class="text-gray-600 mb-4">PT. Dewata Ayu Sri understands that the process of obtaining a Building Approval (PBG) can be complex and time-consuming.</p>
-                        <a href="/page/services/services.html" class="text-[#133E87] font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="/page/services/services.html" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
                 
                 <!-- Service 3 -->
                 <div class="service-card bg-white" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-8">
-                        <div class="text-[#133E87] text-4xl mb-4">
+                        <div class="text-blue-600 text-4xl mb-4">
                             <i class="fas fa-cogs"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-black">AUDIT UTILITIES BUILDING</h3>
                         <p class="text-gray-600 mb-4">The Audit Utilities Building service provides an in-depth and comprehensive analysis of the performance of utility systems in your building.</p>
-                        <a href="/page/services/services.html" class="text-[#133E87] font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
+                        <a href="/page/services/services.html" class="text-blue-600 font-medium inline-flex items-center">Learn More <i class="fas fa-arrow-right ml-2"></i></a>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12" data-aos="fade-up">
-                <a href="/page/services/services.html" class="bg-[#133E87] hover:bg-[#608BC1] text-white px-8 py-3 rounded-full font-medium inline-block transition duration-300">View All Services</a>
+                <a href="/page/services/services.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium inline-block transition duration-300">View All Services</a>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section bg-[#041F47]">
+    <section data-aos="fade-up" id="projects" class="section bg-[#021736]">
         <div class="container mx-auto">
             <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="section-title text-3xl md:text-4xl font-bold mx-auto">Our Projects</h2>
@@ -271,7 +283,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Commercial Building</h3>
                                 <p class="text-gray-00 mb-4">Functional and representative commercial spaces.</p>
-                                <a href="/page/project/product/commercial.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/commercial.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -283,7 +295,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Hospital Building</h3>
                                 <p class="text-gray-00 mb-4">Efficient and comfortable hospital design.</p>
-                                <a href="/page/project/product/hospitaly.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/hospitaly.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -295,7 +307,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Interior Building</h3>
                                 <p class="text-gray-00 mb-4">Aesthetic and functional interior spaces.</p>
-                                <a href="/page/project/product/interior.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/interior.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -306,7 +318,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Master Plan Building</h3>
                                 <p class="text-gray-00 mb-4">Integrated and visionary area planning.</p>
-                                <a href="/page/project/product/masterPlan.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/masterPlan.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -318,7 +330,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Residental Building</h3>
                                 <p class="text-gray-00 mb-4">Comfortable living for modern lifestyles.</p>
-                                <a href="/page/project/product/residental.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/residental.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -329,7 +341,7 @@
                             <div class="project-overlay">
                                 <h3 class="text-xl font-bold mb-2">Retail Building</h3>
                                 <p class="text-gray-00 mb-4">Attractive retail with optimal design.</p>
-                                <a href="/page/project/product/retail.html" class="text-[#64B9AD] font-medium">View Project</a>
+                                <a href="/page/project/product/retail.html" class="text-blue-400 font-medium">View Project</a>
                             </div>
                         </div>
                     </div>
@@ -338,73 +350,34 @@
                 <div class="swiper-pagination"></div>
             </div>
             <div class="text-center mt-12" data-aos="fade-up">
-                <a href="/page/project/project.html" class="bg-[#133E87] hover:bg-[#608BC1] text-white px-8 py-3 rounded-full font-medium inline-block transition duration-300">View All Projects</a>
+                <a href="/page/project/project.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium inline-block transition duration-300">View All Projects</a>
             </div>
         </div>
     </section>
 
     <!-- Clients Section -->
-    <section id="clients" class="section bg-[#CBDCEB]">
+    <section data-aos="fade-up" id="clients" class="section bg-[#d3d6e0]">
         <div class="container mx-auto">
             <div class="text-center mb-12" data-aos="fade-up">
                 <h2 class="section-title text-3xl md:text-4xl font-bold mx-auto text-black">Our Clients</h2>
                 <p class="text-lg text-gray-700 max-w-2xl mx-auto">Trusted by industry leaders across multiple sectors</p>
             </div>
             
-            <div class="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center">
                 <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/content/logo/AGVD.webp" alt="Client Logo Atelier Generations Vasudewa Design" class="client-logo h-28 object-contain">
+                    <img src="/content/LOGO.webp" alt="Client Logo" class="client-logo h-20 object-contain">
                 </div>
                 <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/content/logo/rdtl.webp" alt="Client Logo Republica Democratica De Timor-Leste" class="client-logo h-28 object-contain">
+                    <img src="/content/LOGO.webp" alt="Client Logo" class="client-logo h-20 object-contain">
                 </div>
                 <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="/content/logo/ALLURE.webp" alt="Client Logo Allure Industries" class="client-logo h-28 object-contain">
+                    <img src="/content/LOGO.webp" alt="Client Logo" class="client-logo h-20 object-contain">
                 </div>
                 <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="/content/logo/DW.webp" alt="Client Logo Dream Weaver luxury Villa" class="client-logo h-28 object-contain">
+                    <img src="/content/LOGO.webp" alt="Client Logo" class="client-logo h-20 object-contain">
                 </div>
                 <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="500">
-                    <img src="/content/logo/HYATT.webp" alt="Client Logo Hyatt Regency" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="600">
-                    <img src="/content/logo/CCA.webp" alt="Client Logo Coca Cola Amatil Indonesia" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="200">
-                    <img src="/content/logo/MIO.webp" alt="Client Logo Mio & Partners" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="/content/logo/PERTAMINA.webp" alt="Client Logo Pertamina" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="/content/logo/EDTL.webp" alt="Client Logo Electricidade De Timor-Leste Empresa Republica" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="500">
-                    <img src="/content/logo/JUNGLE PADEL.webp" alt="Client Logo Jungle Padel" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="600">
-                    <img src="/content/logo/QUADRA.webp" alt="Client Logo Quadra" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="700">
-                    <img src="/content/logo/THE LUC.webp" alt="Client Logo The Luc" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="/content/logo/WRONG GYM.webp" alt="Client Logo Wrong Gym" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="400">
-                    <img src="/content/logo/ONE.webp" alt="Client Logo One Hotels & Resorts" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="500">
-                    <img src="/content/logo/andaz.webp" alt="Client Logo Andaz" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="600">
-                    <img src="/content/logo/LA COLLINE.webp" alt="Client Logo La Colline" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="700">
-                    <img src="/content/logo/MDesign.webp" alt="Client Logo 2M Design Lab" class="client-logo h-28 object-contain">
-                </div>
-                <div class="p-4 flex justify-center" data-aos="fade-up" data-aos-delay="800">
-                    <img src="/content/logo/WWODLAM.webp" alt="Client Logo Woodlam Indonesia" class="client-logo h-28 object-contain">
+                    <img src="/content/LOGO.webp" alt="Client Logo" class="client-logo h-20 object-contain">
                 </div>
             </div>
         </div>
@@ -469,13 +442,12 @@
             });
             
             // Video fallback
-            document.getElementById('parallaxVideo').addEventListener('error', function() {
+            document.getElementById('bg-video').addEventListener('error', function() {
                 console.error("Video failed to load");
                 document.querySelector('.hero-video').style.display = "none";
                 document.querySelector('.hero-section').style.background = "#000 url('../../content/bg.jpg') no-repeat center center";
                 document.querySelector('.hero-section').style.backgroundSize = "cover";
             });
         });
-    </script>
-</body>
+    </script></body>
 </html>

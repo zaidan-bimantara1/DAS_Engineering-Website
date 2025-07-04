@@ -43,7 +43,7 @@
         /* text-transform: uppercase; */
       }
       .service-card {
-        background: linear-gradient(135deg, #282c3c 0%, #3e414b 100%);
+        background: linear-gradient(135deg, #001512 0%, #3e414b 100%);
         border-left: 4px solid #4f46e5;
         transition: all 0.3s ease;
       }      

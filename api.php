@@ -1,9 +1,9 @@
 <?php
 // === KONFIGURASI DATABASE ===
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '4z1d4nb1m4n');
-define('DB_NAME', 'das_website');
+define('DB_USER', 'dasengin_das_website');
+define('DB_PASS', 'd34yusr1-d4t4');
+define('DB_NAME', 'dasengin_das_website');
 
 // === CORS ===
 header("Access-Control-Allow-Origin: *");

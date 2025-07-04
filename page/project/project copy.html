@@ -67,34 +67,54 @@
                 .catch(error => console.error("Error loading footer:", error));
         </script>
     </head>
-    <body class="body">
+    <body class="body bg-white-800 text-white">
     <!-- Navbar -->
     <div id="navbar-container" class="navbar-container" data-aos="fade-down"></div>
         <!-- CONTENT START -->
-            <section data-aos="fade-down" id="profiles" class="bg-[#021736] content-container flex-1 relative transition-all duration-300 mb-6">
-                <div class="headers" id="main-headers">
-                    <div class="header-content ml-20">
-                        <a href="./project.html" class="hover:text-gray-400">
-                            <p class="text-3xl md:text-5xl font-bold mb-4 text-white">COMPANY PROJECT</p>
-                        </a>
-                        <div class="header-nav">
-                            <!-- Desktop Menu -->
-                            <div class="tab-links-container">
-                                <a id="menu-commercial" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/commercial.html">COMMERCIAL</a>
-                                <a id="menu-hospitaly" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/hospitaly.html">HOSPITALY</a>
-                                <a id="menu-interior" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/interior.html">INTERIOR</a>
-                                <a id="menu-masterPlan" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/masterPlan.html">MASTERPLAN</a>
-                                <a id="menu-residental" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/residental.html">RESIDENTAL</a>
-                                <a id="menu-retail" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer text-white" href="./product/retail.html">RETAIL</a>
+        <div id="content" class="content-container flex-1 relative p-8 ml-5 transition-all duration-300">
+            <div data-aos="fade-down" class="header bg-[#021736] p-5 rounded" id="main-header">
+                <div class="header-content">
+                    <a href="./project.html" class="hover:text-gray-400">
+                        <h1 class="text-6xl md:text-6xl font-bold mb-5">COMPANY PROJECT</h1>
+                    </a>
+                    <div class="header-nav">
+                        <!-- Desktop Menu -->
+                        <div class="tab-links-container">
+                            <a id="menu-project" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="project.html">All</a>
+                            <a id="menu-commercial" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/commercial.html">COMMERCIAL</a>
+                            <a id="menu-hospitaly" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/hospitaly.html">HOSPITALY</a>
+                            <a id="menu-interior" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/interior.html">INTERIOR</a>
+                            <a id="menu-masterPlan" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/masterPlan.html">MASTERPLAN</a>
+                            <a id="menu-residental" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/residental.html">RESIDENTAL</a>
+                            <a id="menu-retail" class="tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./product/retail.html">RETAIL</a>
+                        </div>
+                        <!-- Toggle Theme (Desktop) -->
+                        <button id="themeToggle" class="p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
+                            <i id="themeIcon" class="fas fa-moon"></i>
+                        </button>
+                        <!-- Mobile Menu -->
+                        <div class="mobile-menu-container">
+                            <!-- Toggle Theme (Mobile) -->                            
+                            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                                Menu <i class="fas fa-chevron-down" id="mobile-menu-arrow"></i>
+                            </button>
+                            <div class="mobile-dropdown" id="mobile-dropdown">
+                                <a href="project.html" onclick="closeMobileMenu()">All</a>
+                                <a href="./product/commercial.html" onclick="closeMobileMenu()">COMMERCIAL</a>
+                                <a href="./product/hospitaly.html" onclick="closeMobileMenu()">HOSPITALY</a>
+                                <a href="./product/interior.html" onclick="closeMobileMenu()">INTERIOR</a>
+                                <a href="./product/masterPlan.html" onclick="closeMobileMenu()">MASTERPLAN</a>
+                                <a href="./product/residental.html" onclick="closeMobileMenu()">RESIDENTAL</a>
+                                <a href="./product/retail.html" onclick="closeMobileMenu()">RETAIL</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
         <br>
         <div class="content-wrapper">
             <div id="all" class="p-2">
-                <div data-aos="fade-down" class="content-card bg-gray-500 p-8 rounded shadow mb-3">
+                <div data-aos="fade-down" class="content-card bg-[#021736] p-8 rounded shadow mb-3">
                     <h1 class="text-4xl font-bold mb-3 text-white text-center">ALL PROJECT</h1>
                     <p class="text-center mb-6 text-gray-300">Our all building projects</p>
                     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="project-grid">
@@ -105,7 +125,8 @@
             </div>
         </div><br><br>    
             <!-- footer start -->
-            <div id="footer-container" class="footer-container"></div>
+            <div data-aos="fade-up" id="footer-container" class="footer-container mb-3 rounded">
+            </div>
             <!-- footer end -->
         </div>
         <div id="scrollToTopBtn" class="hidden fixed bottom-8 right-12 bg-white text-black p-3 rounded-full cursor-pointer shadow-lg">
@@ -120,9 +141,9 @@
             async function loadProjectData() {
                 try {
                     // Show loading state
-                    document.getElementById('project-grid').innerHTML = '<div class="col-span-full text-center text-white py-10">Loading projects...</div>';
+                    document.getElementById('project-grid').innerHTML = '<div class="col-span-full text-center py-10">Loading projects...</div>';
                     
-                    const response = await fetch('https://dasengineering-bali.com/api.php/project');
+                    const response = await fetch('https://dasengineering-bali.com/api/project');
                 
                     if (!response.ok) {
                         throw new Error(`API Error: ${response.status}`);

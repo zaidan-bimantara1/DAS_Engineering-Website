@@ -1,13 +1,6 @@
 .image-con {
   position: relative;
 }
-.rounded {
-  opacity: 1;
-  display: block;
-  height: auto;
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
 .overlay {
   transition: .5s ease;
   opacity: 0;
@@ -23,22 +16,10 @@
 .image-con:hover .overlay {
   opacity: 1;
 }
-.text {
-  color: rgb(255, 255, 255);
-  font-size: 16px;
-  padding: 16px 32px;
-}
-
-.content-card {
-  background: linear-gradient(135deg, #282c3c 0%, #3e414b 100%);
-  border-left: 4px solid #4f46e5;
-  transition: all 0.3s ease;
-}
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
-
 .service-title {
   position: relative;
   display: inline-block;
@@ -50,7 +31,7 @@
   left: 0;
   width: 50px;
   height: 3px;
-  background: #4f46e5;
+  background: #133E87;
   transition: width 0.3s ease;
 }
 .service-card:hover .service-title::after {
@@ -142,18 +123,6 @@
   opacity: 1 !important;
   visibility: visible !important;
 }
-
-/* Efek cursor untuk typing
-.typing-in-progress {
-  border-right: 2px solid;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%, 100% { border-color: transparent; }
-  50% { border-color: #000; }
-} */
-
 .flex-row-reverse .text-content {
   padding-right: 1.5rem;
 }
@@ -206,11 +175,19 @@
   margin-right: 20px;
   margin-left: 0;
 }
-/* Untuk gambar dengan transparansi (PNG) */
-/* .image-transparent {
-  shape-outside: url('gambar.png');
-  shape-image-threshold: 0.5;
-} */
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.521);
+            transition: 0.3s;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.521);
+        }
+        .container {
+            padding: 2px 16px;
+        }
 
 @media (max-width: 768px) {
   .image-float-right,

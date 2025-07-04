@@ -1,189 +1,225 @@
 <html lang="en">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Company Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="./style.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>    
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>Company Profile</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+        <link rel="icon" type="image/png" href="/content/LOGO.webp">    
+        <style>
+        .text {
+            color: black;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+        .textku {
+            color: rgb(255, 255, 255);
+            text-indent: 60px;
+        }
+          
+        @media screen and (min-width: 769px) {
+            .imge{
+                margin-left: 20px;
+            }
+        }
+        .img{
+            width: 700px;
+            height: auto;
+            opacity: 0;
+        }
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            position: relative;
+            opacity: 0.85;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .bgimg-1 {
+            background-image: url("/content/img1.webp");
+        }
 
-    <!-- <link href="../../src/output.css" rel="stylesheet"/> -->   
-    <style>
-      .text {
-        color: black;
-        font-size: 16px;
-        padding: 16px 32px;
-      }
-      
-      .textku {
-        color: rgb(255, 255, 255);
-        text-indent: 30px;
-        /* text-transform: uppercase; */
-      }        
-    </style>
-    <script>
-        fetch("/page/sidebar.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("sidebar-container").innerHTML = data;
-            })
-            .catch(error => console.error("Error loading sidebar:", error));
+        .bgimg-2 {
+            background-image: url("/content/img2.webp");
+        }
 
-        fetch("/page/footer.html")
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("footer-container").innerHTML = data;
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    </script>
-</head>
-<body class="body bg-white-800 text-white">
-    <!-- <div class="flex h-screen"> -->
-        <!-- Sidebar -->
-        <div data-aos="fade-right" id="sidebar-container" class="sidebar-container p-5 top-0 bottom-0 flex flex-col justify-between ease-in h-full">
-        </div>
-        <!-- end sidebar -->        
-        
+        .bgimg-3 {
+            background-image: url("/content/img3.webp");
+        }
+
+        </style>
+        <script>
+            fetch("/page/navbar.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("navbar-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading sidebar:", error));
+
+            fetch("/page/footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("footer-container").innerHTML = data;
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        </script>
+    </head>
+    <body class="body">
+        <!-- Navbar -->
+        <div id="navbar-container" class="navbar-container" data-aos="fade-down"></div>
         <!-- CONTENT START -->
-        <div id="content" class="content-container flex-1 relative overflow-auto p-8 ml-5 transition-all duration-300">
-            <div data-aos="fade-down" class="header bg-[#282c3c] p-5 rounded">
-                <a class="mr-10 hover:text-gray-400 cursor-pointer" href="./profiles.html">
-                    <h1 class="text-6xl font-bold mb-5">COMPANY PROFILE</h1>
-                </a>
-                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./profiles.html">FAST FACT</a>
-                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./founder.html">FOUNDER</a>
-                <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold cursor-pointer" href="./team.html">TEAM</a>
-                <button id="themeToggle" class="p-2 rounded-full bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors">
-                    <i id="themeIcon" class="fas fa-moon"></i>
-                </button>
-            </div><BR>
-        
+        <section data-aos="fade-down" id="profiles" class="section bg-[#021736] content-container flex-1 relative transition-all duration-300">
+            <div class="headers" id="main-headers">
+                <div class="header-content ml-9">
+                    <a href="./profiles.html" class="hover:text-gray-400">
+                        <p class="text-3xl md:text-5xl font-bold mb-4 text-white">COMPANY PROFILE</p>
+                    </a>
+                    <div class="header-navs">
+                        <!-- Desktop Menu -->
+                        <div class="tab-links-container">
+                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white" href="./profiles.html">PROFILE</a>
+                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white" href="./founder.html">FOUNDER</a>
+                            <a class="tab-link tab-links mr-10 hover:text-gray-400 font-bold text-white" href="./team.html">TEAM</a>
+                        </div>
+                            <!-- Mobile Menu -->
+                        <div class="mobile-menu-container">
+                            <!-- Toggle Theme (Mobile) -->                            
+                            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                                Menu <i class="fas fa-chevron-down" id="mobile-menu-arrow"></i>
+                            </button>
+                            <div class="mobile-dropdown" id="mobile-dropdown">
+                                <a href="./profiles.html" onclick="closeMobileMenu()">PROFILE</a>
+                                <a href="./founder.html" onclick="closeMobileMenu()">FOUNDER</a>
+                                <a href="./team.html" onclick="closeMobileMenu()">TEAM</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
             <div class="content-wrapper">
                 <!-- Konten lainnya -->
-                <div id="fast" class="section p-2">
-                    <div data-aos="fade-down" class="bg-[#282c3c] text-white p-5 mb-5 rounded" >
-                        <h1 class="text-4xl font-bold mb-5">FAST FACT</h1>
-                    </div>
-                    <div data-aos="fade-up" class="content-card bg-[#282c3c] p-5 rounded shadow mb-5">
-                        <section class="mb-10 text-white text-justify overflow-hidden mx-auto">
-                            <!-- Gambar di-float ke kiri -->
-                            <img data-aos="fade-right"  src="/content/70587396c1ad1dd7850a518dfd8e7c91.webp" 
-                                 alt="DSG Image" 
-                                 class=" image-wrap-tight float-left mr-6 mb-2 max-h-72 rounded shadow">
-                            
-                            <!-- Konten teks -->
-                            <h2 data-aos="fade-left" class="typing-effect text-3xl font-bold mb-3 text-left">
-                                About and Philosophy Company
-                            </h2>
-                            <p data-aos="fade-left" class="textku typing-effect text-sm md:text-base mb-4 text-left">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p>
-                            <p data-aos="fade-left" class="textku typing-effect text-sm md:text-base mb-4 text-left">
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                            </p><br>
-                        </section>                    
-                    </div>
-                    <div data-aos="fade-up" class="content-card bg-[#282c3c] p-5 rounded shadow mb-5">
-                        <section class="mb-10 text-white text-justify overflow-hidden mx-auto">
-                            <!-- Gambar di sebelah kanan -->
-                            <img data-aos="fade-left" src="/content/70587396c1ad1dd7850a518dfd8e7c91.webp" 
-                                 alt="DSG Image" 
-                                 class="image-wrap-tight float-right ml-6 mb-4 max-h-72 rounded shadow">
-                            
-                            <!-- Konten teks -->
-                            <h2 data-aos="fade-right" class="typing-effect text-3xl font-bold mb-3 text-left">
-                                History of Company
-                            </h2>
-                            <div class="text-content">
-                                <p data-aos="fade-right" class="textku typing-effect text-sm md:text-base mb-4 text-left">
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                </p>
-                                <p data-aos="fade-right" class="textku typing-effect text-sm md:text-base mb-4 text-left">
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                    Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
-                                </p>
-                            </div>
-                        </section>                    
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                        <div data-aos="zoom-in-right" class="content-card service-card p-6 rounded-lg bg-white shadow-lg">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-[#4f46e5] p-3 rounded-full mr-4 w-40 h-40">
-                                    <img src="/content/70587396c1ad1dd7850a518dfd8e7c91.webp" 
-                                    alt="Founder Image" 
-                                    class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                <div id="fast" class="section">
+                    <div class="bgimg-1">
+                        <div class="flex flex-row-reverse flex-col md:flex-row">
+                            <div data-aos="fade-up" class="p-20 w-1/2 opacity-0"></div>
+                            <div data-aos="fade-up" class="p-20 w-1/2 opacity-0">
+                                <div class="rounded bg-[#d3d6e0] p-10">
+                                    <section class="mb-10 text-white text-justify overflow-hidden mx-auto">
+                                        <h2 data-aos="fade-left" class="typing-effect text-4xl font-bold mb-3 text-left text-black">
+                                            About Us
+                                        </h2>
+                                        <div class="text-2xl">
+                                            <p data-aos="fade-left" data-aos-delay="500" class="textku text-gray-700 md:text-base mb-4 text-left md:mr-20">
+                                                PT Dewata Ayu Sri (DAS Engineering) adalah perusahaan konsultan dan kontraktor teknik yang berfokus pada Mechanical, Electrical, and Plumbing (MEP) dengan kualitas yang unggul dan solusi yang tepat guna untuk berbagai proyek konstruksi. Berlokasi di Bali, Indonesia, perusahaan ini telah beroperasi sejak 2016 dan berkembang menjadi salah satu pemimpin di industri MEP di wilayah Bali dan sekitarnya. DAS Engineering memiliki spesialisasi dalam menangani berbagai proyek besar dan menantang di sektor perhotelan, perumahan, komersial, dan industri, memberikan solusi yang efektif dan inovatif bagi setiap klien yang membutuhkan sistem teknik yang handal dan efisien.
+                                            <p data-aos="fade-left" data-aos-delay="700" class="textku text-gray-700 md:text-base mb-4 text-left md:mr-20">
+                                                Kami percaya bahwa setiap proyek merupakan peluang untuk berinovasi dan memberikan nilai tambah bagi klien kami. Dengan menggabungkan keahlian teknik yang mendalam, penggunaan teknologi terbaru, dan pendekatan yang berfokus pada efisiensi waktu serta biaya, kami dapat memberikan solusi yang optimal. Tim profesional kami yang terdiri dari insinyur dan teknisi terampil berkomitmen untuk menyelesaikan setiap proyek dengan standar tertinggi, mulai dari desain awal hingga implementasi di lapangan. Kami juga memberikan layanan konsultasi perizinan untuk memastikan setiap proyek memenuhi peraturan yang berlaku, termasuk bantuan dalam memperoleh PBG (Persetujuan Bangunan Gedung) dan SLF (Sertifikat Laik Fungsi).
+                                        </div>
+                                    </section>
                                 </div>
-                                <h3 class="service-title text-xl font-bold">Our Founder</h3>
                             </div>
-                            <p class="text-white-200 mb-4 typing-effect">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.</p>
-                            <a href="./founder.html" class="inline-flex items-center group">
-                                <span class="inline-flex items-center text-[#4f46e5] hover:text-[#7c73e6] transition-colors ">
-                                    VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
-                                </span>
-                            </a>
-                        </div>
-                        
-                        <div data-aos="zoom-in-up" class="content-card service-card p-6 rounded-lg bg-white shadow-lg">
-                            <div class="flex items-center mb-4">
-                                <div class="bg-[#4f46e5] p-3 rounded-full mr-4 w-40 h-40">
-                                    <img src="/content/70587396c1ad1dd7850a518dfd8e7c91.webp" 
-                                    alt="Founder Image" 
-                                    class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
-                                </div>
-                                <h3 class="service-title text-xl font-bold">Our Team</h3>
-                            </div>
-                            <p class="text-white-200 mb-4 typing-effect">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum.</p>
-                            <a href="./team.html" class="inline-flex items-center group">
-                                <span class="inline-flex items-center text-[#4f46e5] hover:text-[#7c73e6] transition-colors ">
-                                    VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
-                                </span>
-                            </a>
                         </div>
                     </div>
-                </div><br>
+                    <div class="bgimg-2">
+                        <div class="flex flex-col md:flex-row">
+                            <div data-aos="fade-right" class="bg-[#021736] p-5 w-1/2">
+                                <section class="mb-10 text-white text-justify overflow-hidden mx-auto p-20">
+                                    <div class="text-content">
+                                        <h2 data-aos="fade-right" class="typing-effect text-3xl font-bold mb-3 text-left">
+                                            Our Philosophy
+                                        </h2>
+                                        <p data-aos="fade-right" data-aos-delay="500" class="textku text-gray-300 text-2xl md:text-base mb-4 text-left">
+                                            Filosofi DAS Engineering berakar pada tiga nilai fundamental yang membimbing setiap langkah kami dalam menjalankan bisnis, yaitu integritas, inovasi, dan kolaborasi. Kami percaya bahwa integritas adalah dasar dari setiap hubungan bisnis yang sukses. Dalam setiap interaksi dengan klien, mitra, dan rekan kerja, kami selalu menjunjung tinggi kejujuran dan transparansi, memastikan bahwa setiap keputusan yang diambil sejalan dengan kepentingan terbaik semua pihak. Kami juga mengutamakan prinsip-prinsip etika yang tinggi dalam semua proses, dari perencanaan hingga pelaksanaan proyek.
+                                        </p>
+                                        <p data-aos="fade-right" data-aos-delay="700" class="textku text-gray-300 text-2xl md:text-base mb-4 text-left">
+                                            Inovasi adalah kunci untuk bertahan dalam industri yang terus berkembang. Oleh karena itu, kami selalu mencari cara untuk meningkatkan efisiensi, baik dalam hal desain maupun implementasi, dengan memanfaatkan teknologi terbaru dan pendekatan kreatif. Dalam setiap proyek, kami berusaha menciptakan solusi yang lebih baik dan lebih berkelanjutan. Kolaborasi juga memainkan peran penting dalam filosofi kami. Kami percaya bahwa kerja sama yang erat dengan klien, arsitek, kontraktor, dan semua pemangku kepentingan lainnya adalah kunci untuk mencapai hasil terbaik. Dengan komunikasi yang terbuka dan saling mendukung, kami memastikan bahwa setiap proyek dapat berjalan dengan lancar, sesuai dengan harapan, dan menghasilkan hasil yang lebih dari sekadar fungsional, tetapi juga memberikan dampak positif yang tahan lama.
+                                        </p>
+                                    </div>
+                                </section>
+                            </div>
+                            <div data-aos="fade-up" class="p-5 w-1/2 opacity-0"></div>
+                        </div>
+                    </div>
+                    <div class="bgimg-3">
+                        <div class="flex flex-row-reverse flex-col md:flex-row">
+                            <div data-aos="fade-up" class="p-20 w-1/2"></div>
+                            <div data-aos="fade-up" class="p-20 w-1/2 opacity-0">
+                                <div class="rounded bg-[#d3d6e0] p-10">
+                                    <section class="mb-10 text-white text-justify overflow-hidden mx-auto">
+                                        <h2 data-aos="fade-left" class="typing-effect text-black text-3xl font-bold mb-3 text-left">
+                                            History of Company
+                                        </h2>
+                                        <p data-aos="fade-left" data-aos-delay="500" class="textku text-gray-700 text-2xl md:text-base mb-4 text-left md:mr-20">
+                                            PT Dewata Ayu Sri didirikan pada tahun 2016 oleh I Dewa Gede Tri Ambara, seorang insinyur yang memiliki pengalaman luas di bidang teknik dan manajemen proyek konstruksi. Dengan visi untuk menciptakan solusi teknik yang dapat diandalkan dan inovatif, beliau memulai perusahaan ini dengan mengambil proyek-proyek kecil di sektor residensial dan perhotelan. Berkat dedikasi dan komitmen terhadap kualitas, perusahaan ini berhasil memperluas jangkauannya dan membangun reputasi sebagai penyedia solusi MEP yang dapat diandalkan di Bali. Seiring dengan berkembangnya perusahaan, DAS Engineering mulai menangani proyek-proyek lebih besar dan lebih kompleks, dengan pendekatan yang selalu mengutamakan efisiensi biaya dan waktu, serta hasil yang berkualitas tinggi.
+                                        </p>
+                                        <p data-aos="fade-left" data-aos-delay="700" class="textku text-gray-700 text-2xl md:text-base mb-4 text-left md:mr-20">
+                                            Seiring dengan pertumbuhan industri konstruksi di Bali dan semakin tingginya permintaan akan solusi teknik yang efisien dan ramah lingkungan, DAS Engineering terus berinovasi. Kami mulai mengintegrasikan teknologi terkini untuk mendukung pengelolaan proyek yang lebih efektif dan efisien, serta menyediakan solusi digital untuk meningkatkan koordinasi proyek. Dalam perjalanan kami, DAS Engineering juga memperkenalkan layanan perizinan proyek dan manajemen konstruksi yang melibatkan proses-proses seperti pengurusan PBG dan SLF, yang membantu klien memenuhi regulasi yang berlaku. Saat ini, DAS Engineering telah menjadi salah satu perusahaan terkemuka dalam bidang MEP di Bali, dengan rekam jejak yang kuat dalam menyelesaikan berbagai proyek besar yang mencakup berbagai sektor.
+                                        </p>    
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bgimg-1">
+                    <section data-aos="fade-down" id="profiles" class="section p-10">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+                            <div data-aos="zoom-in" data-aos-delay="100" class="service-card p-6 rounded-lg bg-white shadow-lg">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 p-3 rounded-full mr-4 w-40 h-40">
+                                        <img src="/content/founder.webp" 
+                                        alt="Founder Image" 
+                                        class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                                    </div>
+                                    <h3 class="service-title text-3xl font-bold text-black">Our Founder</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4 typing-effect">
+                                    DAS Engineering didirikan oleh I Dewa Gede Tri Ambara, seorang insinyur berpengalaman dengan visi untuk menyediakan solusi MEP yang inovatif dan efisien sejak 2016.
+                                </p>
+                                <a href="./founder.html" class="inline-flex items-center group">
+                                    <span class="inline-flex items-center text-blue-600 hover:text-[#7c73e6] transition-colors ">
+                                        VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
+                                    </span>
+                                </a>
+                            </div>
+                            <div data-aos="zoom-in" data-aos-delay="400" class="service-card p-6 rounded-lg bg-white shadow-lg">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-blue-600 p-3 rounded-full mr-4 w-40 h-40">
+                                        <img src="/content/Download User Icon Vector for free.webp" 
+                                        alt="Founder Image" 
+                                        class="mb-4 md:mb-0 md:mr-20 rounded-full shadow w-32 h-32 object-cover">
+                                    </div>
+                                    <h3 class="service-title text-3xl font-bold text-black">Our Team</h3>
+                                </div>
+                                <p class="text-gray-700 mb-4 typing-effect">
+                                    Tim DAS Engineering terdiri dari para profesional muda yang ahli di bidangnya, berfokus pada kolaborasi dan inovasi untuk memberikan solusi MEP berkualitas tinggi.
+                                </p>
+                                <a href="./team.html" class="inline-flex items-center group">
+                                    <span class="inline-flex items-center text-blue-600 hover:text-[#7c73e6] transition-colors ">
+                                        VIEW ALL <i class="fas fa-arrow-right ml-2 ml-1 transition-transform group-hover:translate-x-1"></i>                        
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    </div>
+                </div>
             <!-- footer start -->
-            <div data-aos="fade-up" id="footer-container" class="footer-container mb-3 rounded">
+            <div id="footer-container" class="footer-container">
             </div>
-        
+
         </div>            
-
-
-            <!-- ...existing code... -->
-            <!-- <button id="scrollToTopBtn">↑ Ke Atas</button>   -->
             <div id="scrollToTopBtn" class="hidden fixed bottom-8 right-12 bg-white text-black p-3 rounded-full cursor-pointer shadow-lg">
                 <i class="fas fa-arrow-up"></i>
             </div>          
-        <!-- ...existing code... -->
-
-    <!-- CONTENT END -->
-
-
+        <!-- CONTENT END -->
         <script src="/js/animations.js" defer></script>
         <script src="/js/script.js"></script>
         <script>
@@ -191,7 +227,6 @@
             AOS.init({
                 once: false // Pastikan animasi bisa berulang
             });
-            
             // Pastikan DOM benar-benar siap
             document.addEventListener('DOMContentLoaded', function() {
                 // Re-init tabs setelah semua konten dimuat
@@ -199,5 +234,6 @@
                     window.initProfileTabs();
                 }
             });
-        </script></body>
+        </script>
+    </body>
 </html>
