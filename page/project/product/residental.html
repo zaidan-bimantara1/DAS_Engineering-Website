@@ -79,7 +79,7 @@
                     // Tampilkan indikator loading
                     document.getElementById('project-grid').innerHTML = '<div class="col-span-full text-center text-white py-10">Loading proyek residental...</div>';
                     // Fetch data dari API
-                    const response = await fetch('https://dasengineering-bali.com/api.php/project/menu/res');
+                    const response = await fetch('yourApiURL/api.php/project/menu/res');
                     if (!response.ok) throw new Error(`Error API: ${response.status}`);
                     
                     const allProjects = await response.json();
