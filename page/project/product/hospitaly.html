@@ -79,7 +79,7 @@
                     document.getElementById('project-grid').innerHTML = '<div class="col-span-full text-center text-white py-10">Loading proyek hospitaly...</div>';
                     
                     // Fetch data dari API
-                    const response = await fetch('https://dasengineering-bali.com/api.php/project/menu/hos');
+                    const response = await fetch('yourApiURL/api.php/project/menu/hos');
         
                     if (!response.ok) throw new Error(`Error API: ${response.status}`);
                     
